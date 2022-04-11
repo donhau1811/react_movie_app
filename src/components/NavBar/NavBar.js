@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import IconButton from "@mui/material/IconButton";
@@ -7,7 +7,7 @@ import Box from "@mui/material/Box";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import TvIcon from "@mui/icons-material/Tv";
-import { Outlet, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import LocalMoviesIcon from "@mui/icons-material/LocalMovies";
 import TrendingUpIcon from "@mui/icons-material/TrendingUp";
 import MovieFilterIcon from "@mui/icons-material/MovieFilter";
@@ -21,15 +21,8 @@ const NavBar = () => {
   const [value, setValue] = useState(0);
   let navigate = useNavigate();
 
-  useEffect(() => {
-    if (value === 0) navigate("/");
-    else if (value === 1) navigate("/trending");
-    else if (value === 2) navigate("/series");
-  }, [value, navigate]);
-
   const handleChange = (e, newValue) => {
     setValue(newValue);
-    console.log(newValue);
   };
 
   return (
@@ -57,9 +50,24 @@ const NavBar = () => {
                 value={value}
                 onChange={handleChange}
               >
-                <Tab value={0} icon={<LocalMoviesIcon />} label="Movies" />
-                <Tab value={1} icon={<TrendingUpIcon />} label="Trending" />
-                <Tab value={2} icon={<MovieFilterIcon />} label="TV Series" />
+                <Tab
+                  value={0}
+                  icon={<LocalMoviesIcon />}
+                  label="Movies"
+                  onClick={() => navigate("/")}
+                />
+                <Tab
+                  value={1}
+                  icon={<TrendingUpIcon />}
+                  label="Trending"
+                  onClick={() => navigate("/trending")}
+                />
+                <Tab
+                  value={2}
+                  icon={<MovieFilterIcon />}
+                  label="TV Series"
+                  onClick={() => navigate("/series")}
+                />
               </Tabs>
             )}
             <MenuIcon
@@ -77,7 +85,7 @@ const NavBar = () => {
           />
         )}
       </Box>
-      <Outlet />
+      {/* <Outlet /> */}
     </>
   );
 };
