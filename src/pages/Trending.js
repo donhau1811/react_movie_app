@@ -34,7 +34,7 @@ const Trending = () => {
 
   useEffect(() => {
     window.scroll(0, 0);
-    fetchSearch();
+    fetchSearch(searchText);
     // eslint-disable-next-line
   }, [page]);
 
