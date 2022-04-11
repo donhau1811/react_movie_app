@@ -16,7 +16,7 @@ const CarouselSlider = ({ movies }) => {
                 height: "80vh",
               }}
               src={`${img_300}${movie?.backdrop_path}`}
-              alt="cailonma"
+              alt="hehe"
             />
             <Carousel.Caption>
               <h3 className="text-success" style={{ backgroundColor: "black" }}>

@@ -37,7 +37,7 @@ const Movies = () => {
 
   useEffect(() => {
     fetchMovies();
-  }, [page, selectedGenres]);
+  }, );
 
   return (
     <>
