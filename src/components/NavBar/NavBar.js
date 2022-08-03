@@ -14,6 +14,7 @@ import MovieFilterIcon from "@mui/icons-material/MovieFilter";
 import DrawerComponent from "./DrawerComponent";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import theme from "../../utils/theme";
+import { gtag } from "ga-gtag";
 
 const NavBar = () => {
   const [openDrawer, setOpenDrawer] = useState(true);
@@ -60,7 +61,10 @@ const NavBar = () => {
                   value={1}
                   icon={<TrendingUpIcon />}
                   label="Trending"
-                  onClick={() => navigate("/trending")}
+                  onClick={() => {
+                    navigate("/trending");
+                    gtag("event", "trending_view");
+                  }}
                 />
                 <Tab
                   value={2}
