@@ -2,6 +2,7 @@ import { Button } from "@mui/material";
 import React from "react";
 import { img500x500 } from "../utils/imageLink";
 import AppModal from "./AppModal";
+import { gtag } from "ga-gtag"; //adding gtag module
 
 const ContentDetails = ({ movie }) => {
   const movieID = movie?.id;
@@ -37,7 +38,11 @@ const ContentDetails = ({ movie }) => {
           <div style={{ margin: "5px" }}>
             <AppModal id={movieID}>
               <li>
-                <Button variant="outlined" color="secondary">
+                <Button
+                  variant="outlined"
+                  color="secondary"
+                  onClick={() => gtag("event", "trailer_view")} //adding open trailer event
+                >
                   Watch Trailer
                 </Button>
               </li>
