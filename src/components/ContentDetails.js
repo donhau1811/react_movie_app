@@ -38,7 +38,16 @@ const ContentDetails = ({ movie }) => {
           <div style={{ margin: "5px" }}>
             <AppModal id={movieID}>
               <li>
-                <Button variant="outlined" color="secondary">
+                <Button
+                  variant="outlined"
+                  color="secondary"
+                  onClick={() =>
+                    gtag("event", "trailer_view", {
+                      event_category: "track lượt bấm",
+                      event_label: "KPI",
+                    })
+                  }
+                >
                   Watch Trailer
                 </Button>
               </li>
