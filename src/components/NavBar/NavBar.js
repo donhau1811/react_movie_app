@@ -63,7 +63,10 @@ const NavBar = () => {
                   label="Trending"
                   onClick={() => {
                     navigate("/trending");
-                    gtag("event", "trending_view"); //Adding gtag event
+                    gtag("event", "trending_view", {
+                      event_category: "khum bít",
+                      event_label: "thử nghiệm",
+                    }); //Adding gtag event
                   }}
                 />
                 <Tab
